@@ -1,0 +1,89 @@
+﻿<div ng-app="myapp">
+    <div ng-controller="userCtrl">
+        {{Message}}
+      
+        <div ng-view></div>
+        <table class="table table-hover general-table">
+
+            <thead class="grid-top-panel">
+                <tr>
+                    <th style="display:none">StudentID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.FName}}</td>
+                    <td>{{user.Address}}</td>
+                    <td>{{user.Age}}</td>
+                    <td style="text-align:right; color:white">
+                        <span>
+                            <span id="save" class="btn btn-primary margin-right-btn"
+                                  ng-click="GetUserByID(user)">
+                                Edit
+                            </span>
+                        </span>
+                    </td>
+                    <td style="text-align:right; color:white">
+                        <span>
+                            <span id="save" class="btn btn-danger margin-right-btn"
+                                  ng-click="DeleteUser(user)">
+                                Delete
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <form novalidate name="frmStudent" id="frmStudent" class="form-horizontal row-border">
+            <br />
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Name</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idFirstName"
+                               class="form-control"
+                               name="nameFirstName" ng-model="FName" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17"> Address</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idFirstName"
+                               class="form-control"
+                               name="nameFirstName" ng-model="Address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Age</label>
+                    <div class="col-md-7">
+                        <input type="text"
+                               id="idFirstName"
+                               class="form-control"
+                               name="nameFirstName" ng-model="Age" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-7">
+                        <span id="save" class="btn btn-success margin-right-btn"
+                              ng-click="SaveUpdate()">
+                            <i class="icon-save"></i> {{btnText}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </form>
+    </div>
+    </div>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/app/app.js"></script>
+<script src="~/Scripts/app/userCntrl.js"></script>
+<script src="~/Scripts/app/CrudService.js"></script>
